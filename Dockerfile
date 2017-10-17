@@ -16,14 +16,14 @@ LABEL maintainer "wow@cassiny.io"
 # Install R packages
 RUN conda config --add channels r && \
     conda install --quiet --yes \
-    'r-base=3.3.2' \
+    'r-base=3.4.*' \
     'r-irkernel=0.7*' \
     'r-plyr=1.8*' \
-    'r-devtools=1.12*' \
-    'r-tidyverse=1.0*' \
-    'r-shiny=0.14*' \
-    'r-rmarkdown=1.2*' \
-    'r-forecast=7.3*' \
+    'r-devtools=1.13*' \
+    'r-tidyverse=1.1*' \
+    'r-shiny=1.0.*' \
+    'r-rmarkdown=1.5*' \
+    'r-forecast=8.0*' \
     'r-rsqlite=1.1*' \
     'r-reshape2=1.4*' \
     'r-nycflights13=0.2*' \
