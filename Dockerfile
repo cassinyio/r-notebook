@@ -2,34 +2,13 @@
 # Distributed under the terms of the Modified BSD License.
 
 # https://hub.docker.com/r/cassinyio/notebook/
-FROM cassinyio/notebook:4018e4ee
+FROM cassinyio/notebook:02946e48
 
 LABEL maintainer "wow@cassiny.io"
 
-# R pre-requisites
-#RUN apt-get update && \
-#    apt-get install -y --no-install-recommends \
-#    fonts-dejavu \
-#    gcc && apt-get clean && \
-#    rm -rf /var/lib/apt/lists/*
-
 # Install R packages
+COPY environment.yml $HOME/environment.yml
 RUN conda config --add channels r && \
-    conda install --quiet --yes \
-    'r-base=3.4.*' \
-    'r-irkernel=0.7*' \
-    'r-plyr=1.8*' \
-    'r-devtools=1.13*' \
-    'r-tidyverse=1.1*' \
-    'r-shiny=1.0.*' \
-    'r-rmarkdown=1.5*' \
-    'r-forecast=8.0*' \
-    'r-rsqlite=1.1*' \
-    'r-reshape2=1.4*' \
-    'r-nycflights13=0.2*' \
-    'r-caret=6.0*' \
-    'r-rcurl=1.95*' \
-    'r-crayon=1.3*' \
-    'r-randomforest=4.6*' \
-    && \
+    conda install -yq --file $HOME/environment.yml && \
     conda clean -tipsy
+RUN rm $HOME/environment.yml
