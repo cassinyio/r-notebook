@@ -2,7 +2,7 @@
 # Distributed under the terms of the Modified BSD License.
 
 # https://hub.docker.com/r/cassinyio/notebook/
-FROM cassinyio/notebook:02946e48
+FROM cassinyio/notebook:6ab15613
 
 LABEL maintainer "wow@cassiny.io"
 
